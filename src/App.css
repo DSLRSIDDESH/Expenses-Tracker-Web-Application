@@ -9,7 +9,6 @@ body {
 
 .container {
     margin: 1rem;
-    text-align: center;
 }
 
 .nav {
@@ -20,6 +19,7 @@ body {
     padding: 0rem 1rem;
     gap: 1.5rem;
     box-shadow: 0px 3px 7.5px rgba(0, 0, 0, 0.1);
+    height: 50px;
 }
 
 .navbar-brand {
@@ -31,6 +31,7 @@ body {
     margin: 0;
     list-style: none;
     display: flex;
+    height: 50px;
 }
 
 .nav li.active {
@@ -59,4 +60,90 @@ body {
 .nav li a {
     font-size: 1.1rem;
     font-weight: 500;
+}
+
+.nav-elements{
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+}
+
+@media (max-width: 660px) {
+    .nav {
+        height: 60px;
+        padding: 0 0.1rem;
+    }
+
+    a.navbar-brand {
+        padding: 0rem 0.2rem;
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-elements {
+        position: absolute;
+        right: 0;
+        top: 60px;
+        background-color: aliceblue;
+        width: 0px;
+        height: calc(100vh - 2rem);
+        transition: all 0.3s ease-out;
+        overflow: hidden;
+    }
+
+    .nav-elements.ham-active {
+        width: 200px;
+    }
+
+    .nav-elements ul {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-elements ul li {
+        margin-right: 0;
+        margin-top: 22px;
+        padding-right: 3.5rem;
+        padding-left: 3rem;
+    }
+}
+
+/* Hamburger menu */
+
+.menu-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 60px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+.menu-btn-burger {
+    width: 27px;
+    height: 3px;
+    background: black;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+.menu-btn-burger::before,
+.menu-btn-burger::after {
+    content: '';
+    position: absolute;
+    width: 27px;
+    height: 3px;
+    background: black;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+.menu-btn-burger::before {
+    transform: translateY(-8px);
+}
+.menu-btn-burger::after {
+    transform: translateY(8px);
 }
