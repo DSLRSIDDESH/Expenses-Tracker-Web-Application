@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Home() {
+    fetch()
     const user_name = "John Doe"
 
     const [balance, setBalance] = React.useState({
@@ -57,8 +58,6 @@ export default function Home() {
     }
 
     React.useEffect(function() {
-        console.log(balanceList.userReason)
-        console.log(balanceList.userPrivate)
         const income = balance.totalIncome
         const expense = balance.totalExpense
         setBalance(prevBal => {return {...prevBal, totalBalance: income - expense}})
@@ -93,7 +92,7 @@ export default function Home() {
                     <input className="" 
                         type="text" 
                         placeholder="Username"
-                        onChange={showPopup.type === 'Credit' ? handleName : handleName}
+                        onChange={handleName}
                         required
                     />
                     <input 
@@ -112,14 +111,14 @@ export default function Home() {
                         <option value="Food">Food</option>
                         <option value="Travel">Travel</option>
                         <option value="Shopping">Shopping</option>
-                        <option value="Movies">Movie</option>
+                        <option value="Movie">Movie</option>
                     </select>
                     <div className="pt-2">
                         <input className="" type="checkbox" id="check" onChange={handleCheck}/>
                         <label htmlFor="check" className="">Keep it private</label>
                     </div>
-                    <button className="popup-btn text-green-600">Update</button>
                     <button type="button" className="popup-btn text-red-600" onClick={togglePopdown}>Cancel</button>
+                    <button className="popup-btn text-green-600">Update</button>
                 </form>
             </div>
             : null
