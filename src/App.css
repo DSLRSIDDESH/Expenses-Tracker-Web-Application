@@ -237,3 +237,106 @@ input,select {
     border-radius: 1rem;
     border: 1px solid #553939;
 }
+}
+
+
+#main{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.hrr{
+    background-color: rgb(218,220,224);
+    border: none;
+    height: 1px;
+    margin: 0;;
+}
+
+.di{
+    padding-top: 100px;
+}
+.details{
+    padding-right: 10rem;
+}
+.sub{
+    font-family: Copperplate, Papyrus, fantasy;
+}
+#user{
+    padding: 5px;
+    margin: 5px 0;
+    outline: none;
+}
+#user:focus
+{   
+    border-color: transparent;
+    border-bottom: 2px solid #1c87c9;    
+}
+#editb{
+    background-color: transparent;
+}
+#editb:hover{
+    background-color: rgb(188, 185, 185);
+    border-radius: 50%;
+}
+#editb:active{
+    cursor: pointer;
+}
+button[type="submit"] {
+    display: block;
+}
+button[type="submit"][hidden] {
+    display: none;
+}
+
+.save{
+    font-size: 20px;  
+    background-color: rgb(10, 198, 10);
+    position: relative;
+    left: 50vh;
+    bottom:10px;
+    border-radius: 5px;
+}
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-inner{
+    position: relative;
+    padding: 32px;
+    width: 100%;
+    max-width: 640px;
+    background-color: #fff;
+}
+.close-btn{
+    background-color: rgb(156, 159, 159);
+    border-radius: 5px;
+}
+
+#pass{
+    width: 50%;
+}
+#editbn{
+    border-radius: 5px;
+    background-color: rgb(180, 122, 234);
+}
+#editbn:hover{
+    background-color: rgb(201, 169, 231);
+    border-radius: 5px;
+}
+#editbn:active{
+    cursor: pointer;
+}
+.cps{
+    align-content: center;
+}
