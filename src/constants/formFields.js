@@ -1,13 +1,14 @@
 const loginFields=[
     {
+        
         labelText:"Email address",
         labelFor:"email-address",
         id:"email-address",
         name:"email",
-        type:"email",
+        type:"text",
         autoComplete:"email",
         isRequired:true,
-        placeholder:"Email address"   
+        placeholder:"Username or Email address" ,
     },
     {
         labelText:"Password",
@@ -17,12 +18,14 @@ const loginFields=[
         type:"password",
         autoComplete:"current-password",
         isRequired:true,
-        placeholder:"Password"   
+        placeholder:"Password" ,
+        minLength:8,  
     }
 ]
 
 const signupFields=[
     {
+        
         labelText:"Name",
         labelFor:"name",
         id:"name",
@@ -30,7 +33,7 @@ const signupFields=[
         type:"text",
         autoComplete:"name",
         isRequired:true,
-        placeholder:"name"   
+        placeholder:"Name"   
     },
     {
         labelText:"Username",
@@ -53,6 +56,7 @@ const signupFields=[
         placeholder:"Email address"   
     },
     {
+      
         labelText:"Password",
         labelFor:"password",
         id:"password",
@@ -60,7 +64,8 @@ const signupFields=[
         type:"password",
         autoComplete:"current-password",
         isRequired:true,
-        placeholder:"Password"   
+        placeholder:"Password",
+        minLength:8 
     },
     {
         labelText:"Confirm Password",
@@ -70,7 +75,18 @@ const signupFields=[
         type:"password",
         autoComplete:"confirm-password",
         isRequired:true,
-        placeholder:"Confirm Password"   
+        placeholder:"Confirm Password",
+        minLength:8   
+    },
+    {
+        labelText:"Upiid",
+        labelFor:"upiid",
+        id:"upiid",
+        name:"upiid",
+        type:"email",
+        autoComplete:"upiid",
+        isRequired:true,
+        placeholder:"UpiId",  
     }
 ]
 

@@ -59,6 +59,7 @@ export default function Login(){
             {
                 fields.map(field=>
                         <Input
+                            minLength={field.minLength}
                             key={field.id}
                             handleChange={handleChange}
                             value={loginState[field.id]}
@@ -69,8 +70,7 @@ export default function Login(){
                             type={field.type}
                             isRequired={field.isRequired}
                             placeholder={field.placeholder}
-                    />
-                
+                    />,
                 )
             }
         </div>
