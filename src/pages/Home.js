@@ -1,7 +1,23 @@
 import React from "react";
+import axios from 'axios';
 
 export default function Home() {
-    const user_name = "John Doe"
+    const [userData, setUserData] = React.useState(null)
+    React.useEffect(() => {
+        async function fetchData() {
+            try {
+              const response = await axios.get("/expense", {
+                withCredentials: true
+            });
+              setUserData(response.data);
+              console.log("User data fetched:", response.data);
+            } catch (error) {
+              console.error(error);
+            }
+          }
+          fetchData();
+    },[]) 
+    const user_name = userData ? userData[0].username : "User"
 
     const [balance, setBalance] = React.useState({
         totalBalance: 0.00,
@@ -9,7 +25,7 @@ export default function Home() {
         totalExpense: 0.00
     })
 
-    const [addIncome, setAddIncome] = React.useState({value: 0.00})
+    const [addIncome, setAddIncome] = React.useState({value: 0.00}) 
     const [addExpense, setAddExpense] = React.useState({value: 0.00})
     const [balanceList, setBalanceList] = React.useState({
         currentName: [], currentBalance: [], currentReason: 'Others', currentPrivate: false,
@@ -57,8 +73,6 @@ export default function Home() {
     }
 
     React.useEffect(function() {
-        console.log(balanceList.userReason)
-        console.log(balanceList.userPrivate)
         const income = balance.totalIncome
         const expense = balance.totalExpense
         setBalance(prevBal => {return {...prevBal, totalBalance: income - expense}})
@@ -67,7 +81,7 @@ export default function Home() {
     const balanceType = balance.totalBalance === 0.00 ? "" : balance.totalBalance > 0.00 ? "+" : "-"
 
     const userList = balanceList.userName.map((name, index) => (
-            <p key={index} className="text-xl text-[#553939] font-medium">{name}</p>
+            <button key={index} className="user-btn text-md text-[#553939] font-medium">{name}</button>
       ));
     const amountList = balanceList.userName.map((balance, index) => (
         <p key={index} className="text-xl text-[#553939] font-medium">
@@ -93,7 +107,7 @@ export default function Home() {
                     <input className="" 
                         type="text" 
                         placeholder="Username"
-                        onChange={showPopup.type === 'Credit' ? handleName : handleName}
+                        onChange={handleName}
                         required
                     />
                     <input 
@@ -112,14 +126,14 @@ export default function Home() {
                         <option value="Food">Food</option>
                         <option value="Travel">Travel</option>
                         <option value="Shopping">Shopping</option>
-                        <option value="Movies">Movie</option>
+                        <option value="Movie">Movie</option>
                     </select>
                     <div className="pt-2">
                         <input className="" type="checkbox" id="check" onChange={handleCheck}/>
                         <label htmlFor="check" className="">Keep it private</label>
                     </div>
-                    <button className="popup-btn text-green-600">Update</button>
                     <button type="button" className="popup-btn text-red-600" onClick={togglePopdown}>Cancel</button>
+                    <button className="popup-btn text-green-600">Update</button>
                 </form>
             </div>
             : null
