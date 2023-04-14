@@ -5,10 +5,10 @@ const loginFields=[
         labelFor:"email-address",
         id:"email-address",
         name:"email",
-        type:"email",
+        type:"text",
         autoComplete:"email",
         isRequired:true,
-        placeholder:"Email address" ,
+        placeholder:"Username or Email address" ,
     },
     {
         labelText:"Password",
@@ -33,7 +33,7 @@ const signupFields=[
         type:"text",
         autoComplete:"name",
         isRequired:true,
-        placeholder:"name"   
+        placeholder:"Name"   
     },
     {
         labelText:"Username",
@@ -77,6 +77,16 @@ const signupFields=[
         isRequired:true,
         placeholder:"Confirm Password",
         minLength:8   
+    },
+    {
+        labelText:"Upiid",
+        labelFor:"upiid",
+        id:"upiid",
+        name:"upiid",
+        type:"email",
+        autoComplete:"upiid",
+        isRequired:true,
+        placeholder:"UpiId",  
     }
 ]
 

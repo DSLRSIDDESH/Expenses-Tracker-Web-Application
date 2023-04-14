@@ -5,18 +5,21 @@ import Input from "./Input";
 
 const fields=signupFields;
 let fieldsState={};
-
 fields.forEach(field => fieldsState[field.id]='');
-
 export default function Signup(){
   const [signupState,setSignupState]=useState(fieldsState);
-
   const handleChange=(e)=>setSignupState({...signupState,[e.target.id]:e.target.value});
   const handleSubmit=(e)=>{
    e.preventDefault();
-    console.log(signupState)
-    signupFields[3].value=signupFields[4].value? createAccount():window.alert("Confirm password must be same as password")
+   const hasSpecialChars = signupState["password"].match(/[!@#$%^&*()+\-=[\]{};':"\\|,.<>/?]+/);
+   if (hasSpecialChars) {
+    alert('Special characters are not allowed(except "_")');
+    return;
   }
+    const password=signupState["password"]
+   signupState[password]===signupState["confirm-password"] ? createAccount():window.alert("Confirm password must be same as password")
+  }
+
   const createAccount=()=>{
 
   }
