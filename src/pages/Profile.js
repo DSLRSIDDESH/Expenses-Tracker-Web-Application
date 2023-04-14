@@ -29,9 +29,6 @@ export default function Profile() {
                 [event.target.name]:event.target.value
         
         }})}
-    function handlesubmit(event){
-        event.preventDefault();
-    }
     return ( 
     <>
     <div className="rounded-xl shadow-sm  w-3/6 border border-gray-800 m-11 " id="main">
@@ -75,13 +72,15 @@ export default function Profile() {
 </div>
 <div className="flex flex-row p-5 pt-0 space-bet" id="di">
         <div className="flex pr-10">
-            <button onClick={()=>setButtonPopup(true)}>Change Password</button>
+            <button id="editbn" className="cps" onClick={()=>setButtonPopup(true)}>Change Password</button>
         </div>
     </div>
 </div>
 <ChangePassword trigger={buttonPopup} setTrigger={setButtonPopup}>
-                <h3>My popup</h3>
-                <p>This is my popup</p>
+                <h3>Change Password</h3>
+                <input id="pass" type="password" onChange={userChange} placeholder="Old password"/>
+                <input id="pass" type="password" onChange={userChange} placeholder="New password"/>
+                <input id="pass" type="text" onChange={userChange} placeholder="Confirm Password"/>
             </ChangePassword>
 </>
     )

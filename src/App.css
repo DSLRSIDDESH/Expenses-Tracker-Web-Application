@@ -212,8 +212,11 @@ input,select {
 
 #main{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    position:relative;
-    left:20%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 .hrr{
     background-color: rgb(218,220,224);
@@ -285,8 +288,25 @@ button[type="submit"][hidden] {
     max-width: 640px;
     background-color: #fff;
 }
-.popup-inner.close-btn{
-    position: absolute;
-    top:16px;
-    right: 16px;
+.close-btn{
+    background-color: rgb(156, 159, 159);
+    border-radius: 5px;
+}
+
+#pass{
+    width: 50%;
+}
+#editbn{
+    border-radius: 5px;
+    background-color: rgb(180, 122, 234);
+}
+#editbn:hover{
+    background-color: rgb(201, 169, 231);
+    border-radius: 5px;
+}
+#editbn:active{
+    cursor: pointer;
+}
+.cps{
+    align-content: center;
 }
