@@ -39,7 +39,6 @@ export default function Login(){
         //      })
         //      .catch(error=>console.log(error))
          }
-    
 
     return(
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -47,6 +46,7 @@ export default function Login(){
             {
                 fields.map(field=>
                         <Input
+                            minLength={field.minLength}
                             key={field.id}
                             handleChange={handleChange}
                             value={loginState[field.id]}
@@ -57,8 +57,7 @@ export default function Login(){
                             type={field.type}
                             isRequired={field.isRequired}
                             placeholder={field.placeholder}
-                    />
-                
+                    />,
                 )
             }
         </div>

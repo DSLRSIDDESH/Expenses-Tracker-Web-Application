@@ -12,14 +12,11 @@ export default function Signup(){
   const [signupState,setSignupState]=useState(fieldsState);
 
   const handleChange=(e)=>setSignupState({...signupState,[e.target.id]:e.target.value});
-
   const handleSubmit=(e)=>{
-    e.preventDefault();
+   e.preventDefault();
     console.log(signupState)
-    createAccount()
+    signupFields[3].value=signupFields[4].value? createAccount():window.alert("Confirm password must be same as password")
   }
-
-  //handle Signup API Integration here
   const createAccount=()=>{
 
   }
@@ -30,6 +27,7 @@ export default function Signup(){
         {
                 fields.map(field=>
                         <Input
+                            minLength={field.minLength}
                             key={field.id}
                             handleChange={handleChange}
                             value={signupState[field.id]}
@@ -44,11 +42,9 @@ export default function Signup(){
                 
                 )
             }
+            
           <FormAction handleSubmit={handleSubmit} text="Signup" />
         </div>
-
-         
-
       </form>
     )
 }
