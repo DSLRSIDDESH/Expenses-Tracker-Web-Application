@@ -182,6 +182,12 @@ hr {
     border-radius: 1rem;
     border: 1px solid #839ea8;
 }
+.popup-btn-2{
+    /* margin: 10px; */
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid #839ea8;
+}
 
 .remove-btn{
     margin: 10px;
@@ -220,6 +226,27 @@ input,select {
     z-index: 2;
     overflow-y: scroll;
 }
+.pop-up-1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 38rem;
+    height: fit-content;
+    border-radius: 10px;
+    z-index: 2;
+}
+.user-pop-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 38rem;
+    min-height: 15rem;
+    border-radius: 10px;
+    z-index: 2;
+    overflow-y: scroll;
+}
 
 .pop-up-2 {
     position: fixed;
@@ -237,8 +264,6 @@ input,select {
     border-radius: 1rem;
     border: 1px solid #553939;
 }
-}
-
 
 #main{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

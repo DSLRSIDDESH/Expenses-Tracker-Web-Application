@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { loginFields } from "../constants/formFields";
 import FormAction from "./FormAction";
 import Input from "./Input";
+import axios from 'axios';
 
 const fields=loginFields;
 let fieldsState = {};
@@ -20,10 +21,10 @@ export default function Login(){
     }
 
     const authenticateUser = () =>{
-        // let loginFields={
-        //         email:loginState['email-address'],
-        //         password:loginState['password']
-        // };
+        let loginFields={
+                email:loginState['email-address'],
+                password:loginState['password']
+        };
            
         // const endpoint=`https://api.loginradius.com/identity/v2/auth/login?apikey=${apiKey}&apisecret=${apiSecret}`;
         //  fetch(endpoint,
@@ -38,7 +39,18 @@ export default function Login(){
         //         //API Success from LoginRadius Login API
         //      })
         //      .catch(error=>console.log(error))
-         }
+        async function loginRequest() {
+            try {
+                const response = await axios.post('/login',{'email':loginFields.email,'password':loginFields.password});
+              console.log("User data fetched:", response.data);
+            } catch (error) {
+              console.error(error);
+                // if(error.response.status === 401){
+                // }
+            }
+          }
+            loginRequest();
+        }
     
 
     return(

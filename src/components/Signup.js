@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { signupFields } from "../constants/formFields"
 import FormAction from "./FormAction";
 import Input from "./Input";
+import axios from 'axios';
 
 const fields=signupFields;
 let fieldsState={};
@@ -21,7 +22,24 @@ export default function Signup(){
 
   //handle Signup API Integration here
   const createAccount=()=>{
-
+    let signupFields={
+      'email':signupState['email-address'],
+      'password':signupState['password'],
+      'name':signupState['name'],
+      'username':signupState['username'],
+    };
+    async function signupRequest() {
+      try {
+          const response = await axios.post('/register',signupFields);
+        console.log("User data fetched:", response.data);
+        alert(response.data.message);
+      } catch (error) {
+        console.error(error);
+          // if(error.response.status === 401){
+          // }
+      }
+    }
+      signupRequest();
   }
 
     return(

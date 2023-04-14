@@ -16,7 +16,7 @@ export default function Navbar() {
 
     return (
         <nav className="nav">
-            <Link to="/" className='navbar-brand'>PocketPilot</Link>
+            <Link to="/" className='navbar-brand'>MoneyMate</Link>
             { windowWidth < 660 &&
                 <div className='menu-icon menu-btn' onClick={handleShowNavbar}>
                     <div class="menu-btn-burger"></div>
