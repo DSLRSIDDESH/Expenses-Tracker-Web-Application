@@ -237,7 +237,7 @@ input,select {
     border-radius: 1rem;
     border: 1px solid #553939;
 }
-}
+
 
 
 #main{
@@ -252,7 +252,7 @@ input,select {
     background-color: rgb(218,220,224);
     border: none;
     height: 1px;
-    margin: 0;;
+    margin: 0;
 }
 
 .di{
