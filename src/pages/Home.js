@@ -1,8 +1,23 @@
 import React from "react";
+import axios from 'axios';
 
 export default function Home() {
-    fetch()
-    const user_name = "John Doe"
+    const [userData, setUserData] = React.useState(null)
+    React.useEffect(() => {
+        async function fetchData() {
+            try {
+              const response = await axios.get("/expense", {
+                withCredentials: true
+            });
+              setUserData(response.data);
+              console.log("User data fetched:", response.data);
+            } catch (error) {
+              console.error(error);
+            }
+          }
+          fetchData();
+    },[]) 
+    const user_name = userData ? userData[0].username : "User"
 
     const [balance, setBalance] = React.useState({
         totalBalance: 0.00,
@@ -10,7 +25,7 @@ export default function Home() {
         totalExpense: 0.00
     })
 
-    const [addIncome, setAddIncome] = React.useState({value: 0.00})
+    const [addIncome, setAddIncome] = React.useState({value: 0.00}) 
     const [addExpense, setAddExpense] = React.useState({value: 0.00})
     const [balanceList, setBalanceList] = React.useState({
         currentName: [], currentBalance: [], currentReason: 'Others', currentPrivate: false,
@@ -66,7 +81,7 @@ export default function Home() {
     const balanceType = balance.totalBalance === 0.00 ? "" : balance.totalBalance > 0.00 ? "+" : "-"
 
     const userList = balanceList.userName.map((name, index) => (
-            <p key={index} className="text-xl text-[#553939] font-medium">{name}</p>
+            <button key={index} className="user-btn text-md text-[#553939] font-medium">{name}</button>
       ));
     const amountList = balanceList.userName.map((balance, index) => (
         <p key={index} className="text-xl text-[#553939] font-medium">

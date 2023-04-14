@@ -231,3 +231,9 @@ input,select {
     z-index: 2;
     overflow-y: scroll;
 }
+
+.user-btn {
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid #553939;
+}
