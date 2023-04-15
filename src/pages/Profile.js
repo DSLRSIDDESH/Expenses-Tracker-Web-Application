@@ -7,7 +7,7 @@ export default function Profile() {
     const [editing, setEditing] = useState(false);
     const [sub, setSub] = useState(false);
     const [editable, setEditable] = React.useState({
-        username:"hello",
+        username:"test",
         email:"123@gmail.com",
         upiid:"sbi@123.in",
         name:"JOHN",

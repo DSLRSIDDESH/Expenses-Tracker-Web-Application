@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { signupFields } from "../constants/formFields"
 import FormAction from "./FormAction";
 import Input from "./Input";
+import axios from 'axios';
 
 const fields=signupFields;
 let fieldsState={};
@@ -16,12 +17,31 @@ export default function Signup(){
     alert('Special characters are not allowed(except "_")');
     return;
   }
-    const password=signupState["password"]
-   signupState[password]===signupState["confirm-password"] ? createAccount():window.alert("Confirm password must be same as password")
+  createAccount();
+    // const password=signupState["password"]
+  //  signupState[password]===signupState["confirm-password"] ? createAccount():window.alert("Confirm password must be same as password")
   }
 
   const createAccount=()=>{
-
+    let signupFields={
+      'email':signupState['email-address'],
+      'password':signupState['password'],
+      'name':signupState['name'],
+      'username':signupState['username'],
+    };
+    async function signupRequest() {
+      try {
+        console.log("Signup fields:", signupFields);
+          const response = await axios.post('/register',signupFields);
+        console.log("User data fetched:", response.data);
+        alert(response.data.message);
+      } catch (error) {
+        console.error(error);
+          // if(error.response.status === 401){
+          // }
+      }
+    }
+      signupRequest();
   }
 
     return(
