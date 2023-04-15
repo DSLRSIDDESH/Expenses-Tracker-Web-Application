@@ -77,10 +77,10 @@ export default function Profile() {
     </div>
 </div>
 <ChangePassword trigger={buttonPopup} setTrigger={setButtonPopup}>
-                <h3>Change Password</h3>
-                <input id="pass" type="password" onChange={userChange} placeholder="Old password"/>
-                <input id="pass" type="password" onChange={userChange} placeholder="New password"/>
-                <input id="pass" type="text" onChange={userChange} placeholder="Confirm Password"/>
+                <h3>Change Password:</h3>
+                <input id="pass" type="password" onChange={userChange} placeholder="Old password" required/>
+                <input id="pass" type="password" onChange={userChange} placeholder="New password" required/>
+                <input id="pass" type="text" onChange={userChange} placeholder="Confirm Password" required/>
             </ChangePassword>
 </>
     )
