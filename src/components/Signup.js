@@ -31,6 +31,7 @@ export default function Signup(){
     };
     async function signupRequest() {
       try {
+        console.log("Signup fields:", signupFields);
           const response = await axios.post('/register',signupFields);
         console.log("User data fetched:", response.data);
         alert(response.data.message);

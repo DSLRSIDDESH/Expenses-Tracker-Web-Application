@@ -10,7 +10,7 @@ export default function Verify(){
             const accessToken = params.get('token');
 
             try{
-                const response = await axios.get('http://localhost:5000/verify', {
+                const response = await axios.get('https://expensetracker-backend-production.up.railway.app/verify', {
                     params: {
                         token: accessToken
                     }
