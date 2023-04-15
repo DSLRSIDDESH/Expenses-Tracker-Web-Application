@@ -312,6 +312,7 @@ button[type="submit"][hidden] {
 }
 
 .popup-inner{
+    display: border-box;
     position: relative;
     padding: 32px;
     width: 100%;
@@ -327,11 +328,25 @@ button[type="submit"][hidden] {
     width: 50%;
 }
 #editbn{
+   margin: 5px;
+    padding-right: 10px;
+}
+#edits{
+    background-color: rgb(10, 198, 10);
+    padding-right: 10px;
     border-radius: 5px;
-    background-color: rgb(180, 122, 234);
+
+}
+#edits:hover{
+    background-color: #6fe489;
+    border-radius: 5px;
+}
+
+#edits:active{
+    cursor: pointer;
 }
 #editbn:hover{
-    background-color: rgb(201, 169, 231);
+    background-color: #F4EEE0;
     border-radius: 5px;
 }
 #editbn:active{
@@ -339,4 +354,12 @@ button[type="submit"][hidden] {
 }
 .cps{
     align-content: center;
+}
+
+.con{
+text-align: center;   
+width: 300px;  
+height: 20px;  
+padding-top: 10px;
+padding-left: 30vh;
 }
