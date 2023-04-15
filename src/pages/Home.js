@@ -20,10 +20,10 @@ export default function Home() {
     React.useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get("/expenses/total", {
+                const response = await axios.get("https://expensetracker-backend-production.up.railway.app/expenses/total", {
                     withCredentials: true
                 });
-                const userTable = await axios.get("/expenses/users", {
+                const userTable = await axios.get("https://expensetracker-backend-production.up.railway.app/expenses/users", {
                     withCredentials: true
                 });
                 setUserData(response.data);
@@ -69,7 +69,7 @@ export default function Home() {
         }
         async function postExpense() {
             try {
-                const response = await axios.post("/expenses", {
+                const response = await axios.post("https://expensetracker-backend-production.up.railway.app/expenses", {
                     withCredentials: true,
                     'other_username': balanceList.currentName,
                     'amount': newBalance,
@@ -92,7 +92,7 @@ export default function Home() {
         async function fetchUserData() {
             try {
                 console.log("Name:", name)
-                const response = await axios.get(`/expenses/${name}`, {
+                const response = await axios.get(`https://expensetracker-backend-production.up.railway.app/expenses/${name}`, {
                     withCredentials: true
                 });
                 setPopUpUser(response.data);
