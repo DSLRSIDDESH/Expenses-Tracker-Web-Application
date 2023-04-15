@@ -17,8 +17,8 @@ export default function Signup(){
     alert('Special characters are not allowed(except "_")');
     return;
   }
-    const password=signupState["password"]
-   signupState[password]===signupState["confirm-password"] ? createAccount():window.alert("Confirm password must be same as password")
+    // const password=signupState["password"]
+  //  signupState[password]===signupState["confirm-password"] ? createAccount():window.alert("Confirm password must be same as password")
   }
 
   const createAccount=()=>{
