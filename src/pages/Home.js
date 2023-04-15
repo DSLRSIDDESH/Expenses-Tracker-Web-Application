@@ -36,6 +36,7 @@ export default function Home() {
             } 
             catch (error) {
               console.error(error);
+              alert(error.response.data.message);
               window.location.href = '/login';
             }
           }

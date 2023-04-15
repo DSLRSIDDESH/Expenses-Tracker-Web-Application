@@ -37,6 +37,7 @@ export default function Signup(){
         alert(response.data.message);
       } catch (error) {
         console.error(error);
+        alert(error.response.data.message)
           // if(error.response.status === 401){
           // }
       }

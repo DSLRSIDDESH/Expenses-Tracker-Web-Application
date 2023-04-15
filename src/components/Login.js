@@ -46,6 +46,7 @@ export default function Login(){
             //   window.location.href = "/";
             } catch (error) {
               console.error(error);
+              alert(error.response.data.message)
                 // if(error.response.status === 401){
                 // }
             }

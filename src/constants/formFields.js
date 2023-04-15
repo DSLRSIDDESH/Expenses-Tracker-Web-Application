@@ -65,7 +65,7 @@ const signupFields=[
         autoComplete:"current-password",
         isRequired:true,
         placeholder:"Password",
-        minLength:8 
+        minLength:4 
     }
     // {
     //     labelText:"Confirm Password",
