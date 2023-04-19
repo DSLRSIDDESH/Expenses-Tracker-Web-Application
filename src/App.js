@@ -1,5 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
+import Logout from './pages/Logout';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
@@ -15,6 +16,7 @@ export default function App() {
       <div className='container'>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/events" element={<Events />} />

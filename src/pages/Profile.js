@@ -1,6 +1,7 @@
 import React from "react";
 import {useState} from 'react';
 import ChangePassword from './changepassword';
+import axios from 'axios';
 
 export default function Profile() {
     const [buttonPopup,setButtonPopup]=useState(false);
@@ -13,6 +14,23 @@ export default function Profile() {
         name:"JOHN",
         ch:false
     })
+    React.useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await axios.get("/users", {
+                    withCredentials: true
+                });
+                setEditable(prevEditable=>{ return {...prevEditable,username:response.data.username,email:response.data.email,upiid:response.data.upi,name:response.data.name}})
+                console.log("User data fetched:", response.data);
+            } 
+            catch (error) {
+              console.error(error);
+              window.location.href = "/login";
+            }
+          }
+          fetchData();
+    },[])
+
     function handleClick(){
         setSub(false);
         setEditing(false);
@@ -29,9 +47,14 @@ export default function Profile() {
                 [event.target.name]:event.target.value
         
         }})}
+
+    const handleLogout=(e)=>{
+        window.location.href = "/logout";
+    }
+
     return ( 
     <>
-    <div className="rounded-xl shadow-sm  w-3/6 border border-gray-800 m-11 " id="main">
+    <div className="rounded-xl shadow-  w-3/6 m-11 " id="main">
     <div className="flex flex-row p-5 pt-0 space-bet" id="di">
     <div>
     <p className="text-2xl font-bold text-left pt-10 ">{editable.name}</p>
@@ -44,35 +67,35 @@ export default function Profile() {
         <div className="flex pr-10">
             <p className="pt-5 pl-3 text-xl text-[#3C2A21] font-bold ">Username</p>
         </div>
-        <p className="pt-5 pr-4 text-xl text-[#3C2A21] font-bold " id="details"><input id="user" value={editable.username} onChange={userChange} name="username" disabled={!editing} required/>
+        <p className="pt-5 pr-4 text-xl text-[#3C2A21] font-bold" id="details"><input className="w-[20rem] font-normal" id="user" value={editable.username} onChange={userChange} name="username" disabled={!editing} required/>
         </p>
     </div>
     <div className="flex flex-row p-5 pt-0 space-bet" id="di">
         <div className="flex pr-10">
             <p className="pl-3 text-xl text-[#3C2A21] font-bold ">Name</p>
         </div>
-        <p className="pr-4 text-xl text-[#3C2A21] font-bold " id="details"><input id="user" value={editable.name} onChange={userChange} name="name" disabled={!editing}/></p>
+        <p className="pr-4 text-xl text-[#3C2A21] font-bold " id="details"><input className="w-[20rem] font-normal" id="user" value={editable.name} onChange={userChange} name="name" disabled={!editing}/></p>
     </div>
     <div className="flex flex-row p-5 pt-0 space-bet" id="di">
         <div className="flex pr-10">
             <p className=" pl-3 text-xl text-[#3C2A21] font-bold ">EmailId</p>
         </div>
-        <p className=" pr-4 text-xl text-[#3C2A21] font-bold " id="details"><input id="user" value={editable.email} onChange={userChange} name="email" disabled={!editing}/></p>
+        <p className=" pr-4 text-xl text-[#3C2A21] font-bold " id="details"><input className="w-[20rem] font-normal" id="user" value={editable.email} onChange={userChange} name="email" disabled={!editing}/></p>
     </div>
     <div className="flex flex-row p-5 pt-0 space-bet" id="di">
         <div className="flex pr-10">
             <p className="pl-3 text-xl text-[#3C2A21] font-bold ">Upiid</p>
         </div>
-        <p className="pr-4 text-xl text-[#3C2A21] font-bold " id="details"><input id="user" value={editable.upiid} onChange={userChange} name="upiid" disabled={!editing}/></p>
+        <p className="pr-4 text-xl text-[#3C2A21] font-bold " id="details"><input className="w-[20rem] font-normal" id="user" value={editable.upiid} onChange={userChange} name="upiid" disabled={!editing}/></p>
     </div>
     <div className="flex flex-row  pt-0" id="subm">
     <div className="flex pr-10">
-    {sub?  <button type="submit" className="save" onClick={handleClick}>Save</button>:null}
+    {sub?  <button type="submit" className="save popup-btn-2" onClick={handleClick}>Save</button>:null}
     </div>
 </div>
 <div className="flex flex-row p-5 pt-0 space-bet" id="di">
         <div className="flex pr-10">
-            <button id="editbn" className="cps" onClick={()=>setButtonPopup(true)}>Change Password</button>
+            <button id="editbn" className="popup-btn-2" onClick={()=>setButtonPopup(true)}>Change Password</button>
         </div>
     </div>
 </div>
@@ -82,6 +105,7 @@ export default function Profile() {
                 <input id="pass" type="password" onChange={userChange} placeholder="New password"/>
                 <input id="pass" type="text" onChange={userChange} placeholder="Confirm Password"/>
             </ChangePassword>
+        <button onClick={handleLogout} className="popup-btn-2 mt-5">Logout</button>
 </>
     )
 }

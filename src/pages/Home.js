@@ -36,6 +36,7 @@ export default function Home() {
             } 
             catch (error) {
               console.error(error);
+              window.location.href = "/login";
             }
           }
           fetchData();
@@ -107,6 +108,7 @@ export default function Home() {
     const toggleUserPopdown = () => {
         setShowUserPopup(prevPopup => {return{...prevPopup,show: false,name: ''}});
     }
+    // const handleClear = (event, id) => {
 
     React.useEffect(function() {
         const income = balance.totalIncome
@@ -154,6 +156,13 @@ export default function Home() {
             {popUpUser[index].is_private ? 'Yes' : 'No'}
         </p>
     ));
+    // const userClearedList = popUpUser.map((clr, index) => (
+    //     <button key={index} className="text-medium text-[#553939] font-medium mb-1.5 user-btn"
+    //         onClick={(event) => handleClear(event, index, popUpUser[index].id)}
+    //     >
+    //         clear
+    //     </button>
+    // ));
 
     function togglePopup(typ) {
         setShowPopup(prevPopup => {return{...prevPopup,show: true,type: typ}});
@@ -222,6 +231,10 @@ export default function Home() {
                             <p className="text-xl text-[#3C2A21] font-bold mb-2">Private</p>
                             {userPrivateList}
                         </div>
+                        {/* <div className="pl-10 pr-10">
+                            <p className="text-xl text-[#3C2A21] font-bold mb-2">Clear</p>
+                            {userClearedList}
+                        </div> */}
                     </div>
                 <button type="button" className="popup-btn-2 ml-14 mb-10 text-red-600 self-center" onClick={toggleUserPopdown}>Close</button>
             </div>

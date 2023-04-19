@@ -24,6 +24,7 @@ export default function Events() {
             } 
             catch (error) {
               console.error(error);
+              window.location.href = "/login";
             }
           }
           fetchData();

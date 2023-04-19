@@ -41,10 +41,12 @@ export default function Login(){
         //      .catch(error=>console.log(error))
         async function loginRequest() {
             try {
-                const response = await axios.post('/login',{'email':loginFields.email,'password':loginFields.password});
+                const response = await axios.post('/login',{'username':loginFields.email,'password':loginFields.password});
               console.log("User data fetched:", response.data);
+              window.location.href = "/";
             } catch (error) {
               console.error(error);
+              alert(error.response.data.message);
                 // if(error.response.status === 401){
                 // }
             }

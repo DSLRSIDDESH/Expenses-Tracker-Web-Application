@@ -17,8 +17,9 @@ export default function Signup(){
     alert('Special characters are not allowed(except "_")');
     return;
   }
-    const password=signupState["password"]
-   signupState[password]===signupState["confirm-password"] ? createAccount():window.alert("Confirm password must be same as password")
+  createAccount();
+  //   const password=signupState["password"]
+  //  signupState[password]===signupState["confirm-password"] ? createAccount():window.alert("Confirm password must be same as password")
   }
 
   const createAccount=()=>{
@@ -33,8 +34,10 @@ export default function Signup(){
           const response = await axios.post('/register',signupFields);
         console.log("User data fetched:", response.data);
         alert(response.data.message);
+        window.location.href = "/login";
       } catch (error) {
         console.error(error);
+        alert(error.response.data.message);
           // if(error.response.status === 401){
           // }
       }

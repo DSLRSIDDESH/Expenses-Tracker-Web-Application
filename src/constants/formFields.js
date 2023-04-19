@@ -19,7 +19,7 @@ const loginFields=[
         autoComplete:"current-password",
         isRequired:true,
         placeholder:"Password" ,
-        minLength:8,  
+        minLength:4,  
     }
 ]
 
@@ -65,7 +65,7 @@ const signupFields=[
         autoComplete:"current-password",
         isRequired:true,
         placeholder:"Password",
-        minLength:8 
+        minLength:4 
     },
     {
         labelText:"Confirm Password",
@@ -76,18 +76,18 @@ const signupFields=[
         autoComplete:"confirm-password",
         isRequired:true,
         placeholder:"Confirm Password",
-        minLength:8   
+        minLength:4  
     },
-    {
-        labelText:"Upiid",
-        labelFor:"upiid",
-        id:"upiid",
-        name:"upiid",
-        type:"email",
-        autoComplete:"upiid",
-        isRequired:true,
-        placeholder:"UpiId",  
-    }
+    // {
+    //     labelText:"Upiid",
+    //     labelFor:"upiid",
+    //     id:"upiid",
+    //     name:"upiid",
+    //     type:"email",
+    //     autoComplete:"upiid",
+    //     isRequired:true,
+    //     placeholder:"UpiId",  
+    // }
 ]
 
 export {loginFields,signupFields}
